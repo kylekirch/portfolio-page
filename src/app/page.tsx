@@ -6,6 +6,7 @@ import MainTitle from "./components/kirchLib/MainTitle";
 import Subtitle from "./components/kirchLib/Subtitle";
 import Description from "./components/kirchLib/Description";
 import Hyperlink from "./components/kirchLib/Hyperlink";
+
 export default function Home() {
   const imgSrc="/favicon.svg";
   return (

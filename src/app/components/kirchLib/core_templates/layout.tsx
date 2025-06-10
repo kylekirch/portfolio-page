@@ -21,8 +21,9 @@ const body_Iceland = Iceland({
 });
 
 export const metadata: Metadata = {
-  title: "- Default kirchLib Layout -",
-  description: "Library by Kyle Kirchgessner, began development 5/27/25",
+  title: "BlocKit, React Component Library",
+  description: "Snap components together—no screws attached",
+  authors: [{ name: "Kyle Kirchgessner", url: "https://kyle.kirchgessner.co" }]
 };
 
 export default function RootLayout({
