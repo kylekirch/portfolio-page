@@ -2,6 +2,13 @@ import type { Metadata } from "next";
 import { Anton, Goldman, Iceland } from "next/font/google";
 import "./globals.css";
 
+/* Component imports */
+import Icon from "./assets/Icon";
+import MainTitle from "./assets/MainTitle";
+import Description from "./assets/Description";
+import Subtitle from "./assets/Subtitle";
+
+
 const heading_Anton = Anton({
   weight: "400",
   variable: "--font-anton",
@@ -34,6 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${heading_Anton.variable} ${sub_Revalia.variable} ${body_Iceland.variable}`}>
+        <MainTitle titleText="BlocKit, React Component Library" />
+        <Description text="Snap components together - no screws attatched" />
+        <Subtitle subText="By Kyle Kirchgessner" />
+        <Subtitle subText="- 2025" />
+        <Icon href="./assets/logo.svg" />
         {children}
       </body>
     </html>

@@ -4,6 +4,12 @@ import "./globals.css";
 import Navbar from "./components/kirchLib/Navbar";
 import Footer from "./components/kirchLib/Footer";
 
+/* Component imports */
+import Icon from "./components/kirchLib/Icon";
+import MainTitle from "./components/kirchLib/MainTitle";
+import Description from "./components/kirchLib/Description";
+import Subtitle from "./components/kirchLib/Subtitle";
+
 const heading_Anton = Anton({
   weight: "400",
   variable: "--font-anton",
@@ -36,16 +42,15 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${heading_Anton.variable} ${sub_Revalia.variable} ${body_Iceland.variable}`}>
         <Navbar 
-            leftIcon={["/favicon.svg", "#"]} 
+            leftIcon={["/favicon.svg"
+              , "#"]} 
             leftText={["Shop", "#"]} 
-            navbarTitle={["Kyle Kirchgessner", "#"]} 
+            navbarTitle={["", "#"]} 
             rightText={["Contact", "#"]} 
             rightIcon={["/favicon.svg", "https://kirch.wiki"]} 
             id={"defaultNavbar"}  
           /> 
-
         {children}
-
               <Footer   
           iconData= {[ 
             ["/favicon.svg", "https://x.com/="], 
