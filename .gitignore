@@ -12,13 +12,16 @@
 
 # testing
 /coverage
-/dist/*
-/dist/
-dist/*
 
 # next.js
-/.next/
+node_modules/
+dist/
+src/app/dist/
+.next/
+/dist/
+/**/dist/
 /out/
+
 
 # production
 /build
