@@ -45,7 +45,7 @@ export default function RootLayout({
         <Description text="Snap components together - no screws attatched" />
         <Subtitle subText="By Kyle Kirchgessner" />
         <Subtitle subText="- 2025" />
-        <Icon href="./assets/logo.svg" />
+        <Icon href="./assets/img/logo.svg" />
         {children}
       </body>
     </html>

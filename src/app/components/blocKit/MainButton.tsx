@@ -1,13 +1,16 @@
-import React from "react";
+import styles from "./core/blocKit.module.css"
+
 import Image from "next/image";
 import Subtitle from "./Subtitle";
 
 const MainButton = (props: {
-                    buttonText?:string; 
+                    text?:string; 
+                    fontSize?: string; // Accepts CSS font-size values, e.g., '24px', '2rem'
                     href?:string;
                     icon?:string;
                     iconWidth?:number;
                     iconHeight?:number;
+                    imageID?:string;
                     id?:string;
   }) => {
   /* PROPS
@@ -18,7 +21,7 @@ const MainButton = (props: {
   */
   //add onclick?
   /* Normalize buttonText - Defaults to '' if none provided */
-  const buttonText = props.buttonText? props.buttonText:'';
+  const text = props.text? props.text:'';
   /* Normalize href - Defaults to '#' if none provided */
   const href = props.href? props.href:'#';
   /* Normalize icon address - Defaults to '' if none provided */
@@ -29,21 +32,23 @@ const MainButton = (props: {
   const iconHeight = props.iconHeight? props.iconHeight:50;
   /* Normalize id - defaults class to 'defaultButton' if none provided */
   const id = props.id? props.id : "defaultButton"
-  
+  const fontSize = props.fontSize? props.fontSize : '24px'
+
   return(
-    <a href={href}>
-      <button className="mainButton" id={id}>
+    <a href={href} className={styles.mainButtonRef}>
+      <button className={styles.mainButton} id={id}>
         {icon? /* Validate icon address - Returns an empty element if none provided*/
                     <Image 
                         src={icon} 
-                        alt={buttonText +" button icon"}
+                        alt={text +" button icon"}
                         width={iconWidth} 
                         height={iconHeight}
+                        id={props.imageID}
                       />
                     :
                     <></>}
-        {buttonText? /* Validate buttonText - Returns an empty element if none provided*/
-                    <Subtitle subText={buttonText} />
+        {text? /* Validate buttonText - Returns an empty element if none provided*/
+                    <Subtitle id={styles.text} fontSize={fontSize} text={text} />
                     :
                     <></>}
       </button>

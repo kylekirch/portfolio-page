@@ -1,4 +1,5 @@
-import React from "react";
+import styles from "./core/blocKit.module.css"
+
 import Subtitle from "./Subtitle"
 import Description from "./Description"
 
@@ -21,21 +22,17 @@ const Card = (props: {
                   props.header
                     :
                   props.body? '': "[Card]");
+  const children = props.children? props.children : <></>
 
   return(
-    <div className="card" id={id}>
-      {header?
-          <Subtitle subText={header} id="underlined" />
-            : 
-          <></>
-      }
+    <div className={styles.card} id={id}>
+      <Subtitle text={header} id={styles.underlined} />
       {body?
           <Description text={body}/>
-                  :
-                  <></>
+            :
+          <></>
           }
-    {props.children}
+    {children}
     </div>
 )};
-
 export default Card;

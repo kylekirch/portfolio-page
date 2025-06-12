@@ -1,66 +1,23 @@
-/*GLOBAL HTML/Body (MOVE TO GLOBAL CSS FILE)*/
-:root {
-  --background: #ebebeb;
-  --foreground: #000000;
-  --accent: #470FF4;
-  --hyperlink: #26C485;
-  --backup1: #D0ADF0;
-}
-/*Initial media queries*/
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000000;
-    --foreground: #ebebeb;
-  }
-  html {
-    color-scheme: dark;
-  }
-}
-html {
-  max-width: 100vw;
-  scroll-behavior: smooth;
-}
-body {
-  max-width: 100vw;
-  scroll-behavior: smooth;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-goldman), var(--font-anton), var(--font-iceland);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-}
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-
-
-
 /*Default Component Styling*
 *
 *
 *
 */
-/*Component Type Definitions*/
+
+/*Text Classes*/
 #accent{
   color: var(--accent);
 } #underlined {
   border-bottom: 1px solid var(--foreground);
 } #text {
   color: #ebebeb;
-} @media (prefers-color-scheme: light) {
-  #invertable {
-    filter:invert(1)
-  }
-}
+  text-decoration-color: var(--foreground);
+} 
+
 /*MainTitle Component*/
 h1.mainTitle {
   font-family: var(--font-anton);
   font-weight: 400;
-  font-size: 64px;
   letter-spacing: 1px;
   -webkit-text-stroke-color: var(--background);
   -webkit-text-stroke-width: 1px;
@@ -69,40 +26,48 @@ h1.mainTitle {
 h3.subTitle{
   font-family: var(--font-goldman);
   font-weight: 400;
-  font-size: 56px;
   -webkit-text-stroke-color: var(--background);
   -webkit-text-stroke-width: 1px;
 }
 /*Description Component*/
 p.description{
   font-family: var(--font-iceland);
-  font-size: 42px;
 }
 /*Hyperlink Component*/
-a.hyperlink {
-  font-family: var(--font-iceland);
-  font-size: 42px;
+div.hyperlink a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
   color: var(--hyperlink);
   text-decoration: none;
+}
+a.hyperlinkText {
+  font-family: var(--font-iceland);
+  width: fit-content;
   cursor: pointer;
 } a.hyperlink:hover {
-  filter: opacity(.8);
+  filter: opacity(.1);
+  transition: all .1s;
 }
 /*MainButton Component*/
 button.mainButton{
-  padding: 10px;
-  border-radius: 5px;
+  border: 1px transparent;
+  border-radius: 8px;
+  padding: 8px;
   font-family: var(--font-goldman);
-  border: 1px solid var(--background);
-  box-shadow: 1px 0px 1px 0px #000000;
+  font-size: 24px;
+  box-shadow: 1px 0px 1px 0px var(--background);
   background-color: var(--accent);
+  cursor: pointer;
 } button.mainButton:hover {
   opacity: .8;
-  cursor: pointer;
   transition: all .1s;
-} 
+}
 /*Navbar Component*/
 .navbar {
+  z-index: 2;
   background-color: transparent;
   backdrop-filter: invert(.1);
   position: sticky;
@@ -113,17 +78,25 @@ button.mainButton{
   align-items: center;
   justify-content: space-between;
   border-radius: 0px 0px 5px 5px;
-} .navbarSection {
+} .navbar .navbarSection {
   min-width: 25%;
   display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
   gap: 5px
+} .navbarSection:first-of-type {
+  justify-content: flex-start;
 } .navbarSection:last-of-type {
   justify-content: flex-end;
 } .navbarSection .hyperlink{
   width: 100%;
   color: #ebebeb;
+} .navbar .mainButton#icon{
+  height: 56px;
+  width: 56px;
+  justify-content: center;
+  align-items: center;
 }
 /*Card Component*/
 .card {
@@ -139,7 +112,6 @@ button.mainButton{
   border-radius: 10px;
   width: fit-content;
   padding: 15px;
-  padding-top: 0px;
 } .cardDeck .card{
   width: 650px;
   border: none;
@@ -147,44 +119,94 @@ button.mainButton{
   text-align: center;
 }
 /*Carousel Component*/
-.modalContainer {
+div .carousel{
+  border: inset 1px var(--foreground);
+  border-radius: 10px;
+  padding: 20px;
+} .carousel .modalContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-} .modalContainer .modalFocus {
+} .modalContainer .subtitle{
+  margin: 5px;
+  margin-bottom: 15px;
+}.modalContainer .modalFocus {
   text-align: center;
   align-self: center;
   align-items: center;
-} .carouselButton {
+} .modalFocus .description{
+  margin: 20px auto;
+} .modalFocus .modalImage {
+  padding: 5px;
+  border-radius: 5px;
+}
+.carouselButton {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  margin-top: 20px;
+  margin: 25px 0px 0px;
+} .carouselButton .changeButton{ 
+  padding: 5px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: inset 1px var(--foreground);
+  cursor: pointer;
+} .carouselButton .changeButton:hover{
+    backdrop-filter: opacity(.1);
+    transition: all;
+  }
+@media (prefers-color-scheme: dark) {
+  .carouselButton .changeButton:hover{
+    backdrop-filter: invert(.1);
+    transition: all .1s;
+  }
 }
+
 /*ContactForm Component*/
-.contactForm {
+form.contactForm {
+  border: inset 1px var(--foreground);
   display: flex;
   flex-direction: column;
-  padding: 0px 20px;
+  gap: 10px;
+  padding: 10px 20px;
   width: 500px;
-  border: 1px solid var(--foreground);
   border-radius: 10px;
-} .contactForm label {
+} .contactForm div > .subtitle {
   padding: 10px;
 } .contactForm input {
+  background-color: var(--background);
+  filter: invert(.1);
+  border: inset 1px var(--foreground);
   min-height: 40px;
   min-width: 75%;
   width: fit-content;
   max-width: 100%;
   padding: 10px;
 } .contactForm textarea {
+  background-color: var(--background);
+  filter: invert(.1);
+  border: inset 1px var(--foreground);
   resize: none;
   min-height: 150px;
   width: 100%;
   padding: 10px;
 } .contactForm .submitButton {
-  margin: 20px 0px;
+  background-color: var(--accent);
+  font-family: var(--font-goldman);
+  filter: opacity(1);
+  border: 1px transparent;
+  border-radius: 8px;
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 150px;
+  margin: 10px auto;
+  margin-top: 10px;
+  cursor: pointer;
+} .contactForm .submitButton:hover {
+  filter: opacity(.9);
+  border: 1px var(--background);
+  transition: all .1s;
 }
 /*IconBelt Component*/
 .iconBelt {

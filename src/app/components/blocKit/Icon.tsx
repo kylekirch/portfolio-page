@@ -1,4 +1,5 @@
-import React from "react";
+import styles from "./core/blocKit.module.css"
+
 import Image from "next/image";
 
 const Icon = (props: {
@@ -42,7 +43,7 @@ const Icon = (props: {
   const id = props.id? props.id : "none";
 
   return(
-    <div className="icon" id={id}>
+    <div className={styles.icon} id={id}>
       {href? <a href={href}>
         <Image
                   src={src}

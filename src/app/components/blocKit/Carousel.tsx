@@ -1,25 +1,30 @@
 'use client'
-import React, { useState } from 'react';
+
+import styles from "./core/blocKit.module.css"
+
+import { useState } from 'react';
 import Image from 'next/image';
-import Icon from "./Icon"
 import Subtitle from './Subtitle';
 import Description from './Description';
+import upIcon from "./core/assets/img/icon_up.svg"
+import downIcon from "./core/assets/img/icon_down.svg"
 
 const Modal = (props: {
                         title: string
                         description: string
                         imgURL: string
                         projectURL: string
+                        id: string
 }) => {
   return(
-    <div className="modalContainer">
-      <Subtitle subText={props.title}/>
-        <div className="modalFocus">
+    <div className={styles.modalContainer} id={props.id}>
+      <Subtitle text={props.title}/>
+        <div className={styles.modalFocus}>
           <a href={props.projectURL}>
             <Image
-                    className="modalImage"
+                    className={styles.modalImage}
                     src={props.imgURL}
-                    alt={props.title+" Project preview image"}
+                    alt={props.title+" modal preview image"}
                     width={400}
                     height={400}
                     priority
@@ -34,6 +39,7 @@ const Modal = (props: {
 const Carousel = (props: {
                         numModals: number //Determines the number of modals that will be generated
                         modalData: Array<Array<string>>
+                        id?: string
                         
 }) => {
   // Define the Item type
@@ -43,7 +49,7 @@ const Carousel = (props: {
     imgURL: string;
     projectURL: string;
   };
-
+  const id = props.id? props.id: 'defaultCarousel';
   const modalData = props.modalData;
 
   //create an array of the modal items to be used and their corresponding data
@@ -77,19 +83,24 @@ const Carousel = (props: {
         setCurrentModalNum(props.numModals-1)
     }
   };
-
+  const modalStyle = props.numModals > 1? 'underlined': 'singleModal';
   return (
-    <div>
+    <div className={styles.carousel} id={id}>
       <Modal 
         title={currentModal.title}
         description={currentModal.description}
         imgURL={currentModal.imgURL}
         projectURL={currentModal.projectURL}
+        id={modalStyle}
       />
-      <div className='carouselButton'>
-        <button onClick={handleClickUp}><Icon src="/icon_up.svg"/></button>
-        <button onClick={handleClickDown}><Icon src="/icon_down.svg"/></button>
-      </div>
+      {props.numModals > 1?
+        <div className={styles.carouselButton}>
+          <button className={styles.changeButton} onClick={handleClickUp} id={"invertable"}><Image src={upIcon} alt={"Up button"} /></button>
+          <button className={styles.changeButton} onClick={handleClickDown} id={"invertable"}><Image src={downIcon} alt={"Down button"} /></button>
+        </div>
+        :
+      <></>
+      }
     </div>
   );
 }

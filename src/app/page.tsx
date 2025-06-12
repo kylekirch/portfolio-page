@@ -1,19 +1,30 @@
 import styles from "./page.module.css";
-import CardDeck from "./components/kirchLib/CardDeck";
-import Carousel from "./components/kirchLib/Carousel";
-import ContactForm from "./components/kirchLib/ContactForm";
-import MainTitle from "./components/kirchLib/MainTitle";
-import Subtitle from "./components/kirchLib/Subtitle";
-import Description from "./components/kirchLib/Description";
-import Hyperlink from "./components/kirchLib/Hyperlink";
+import CardDeck from "./components/blocKit/CardDeck";
+import Carousel from "./components/blocKit/Carousel";
+import ContactForm from "./components/blocKit/ContactForm";
+import MainTitle from "./components/blocKit/MainTitle";
+import Subtitle from "./components/blocKit/Subtitle";
+import Description from "./components/blocKit/Description";
+import Hyperlink from "./components/blocKit/Hyperlink";
+
+import * as dotenv from 'dotenv';
 
 export default function Home() {
+  dotenv.config();
+  const EMAILJS_USER_ID = process.env.REACT_APP_EMAILJS_USER_ID? 
+                                      process.env.REACT_APP_EMAILJS_USER_ID
+                                      :
+                                      'ERROR';
+  const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID? 
+                                      process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+                                      :
+                                      'ERROR';
   const imgSrc="/favicon.svg";
   return (
     <div className={styles.main}>
       <div className={styles.titleSection}>
-        <Subtitle subText="Portfolio - Made with Next.js" id="underlined"/>
-        <Hyperlink linkText="Docs" href="https://kirch.wiki"/>
+        <Subtitle text="Portfolio - Made with Next.js" id="underlined"/>
+        <Hyperlink text="Docs" href="https://kirch.wiki"/>
       </div>
       <CardDeck  
           deckTitle={"About Myself"} 
@@ -47,15 +58,7 @@ export default function Home() {
               "#"]
           ]} 
       /> 
-      <ContactForm   
-          fields={[ 
-            ["Name", "text", "name"], 
-            ["Email", "email", "email"], 
-            ["Message", "textarea", "message"], 
-          ]} 
-          buttonText={"Send"} 
-          id={"defaultForm"}  
-      /> 
+      <ContactForm EMAILJS_KEY={EMAILJS_USER_ID} TEMPLATE_ID={EMAILJS_TEMPLATE_ID}/> 
     </div>
   );
 }

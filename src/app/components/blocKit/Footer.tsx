@@ -1,7 +1,9 @@
-import React from "react";
+import styles from "./core/blocKit.module.css"
+
 import Description from "./Description";
 import IconBelt from "./IconBelt"
 import Hyperlink from "./Hyperlink";
+import errorIcon from "./core/assets/img/icon_error.svg";
 
 export default function Footer(props: {
                 iconData?:Array<Array<string>>; 
@@ -15,22 +17,19 @@ export default function Footer(props: {
     * id?:string - (Optional) An optional id attribute that the <div className="iconBelt"> subcomponent inherits
   */
     /*Designates the location of the 'no file attatched' error image*/
-    const errorImageAddress = `/icon_error.svg`;
     
 
     /* Define the default footer data */
-    const defaultIcon = errorImageAddress;
-    const defaultHyperlinkText = "[hyperlink]";
     const defaultIconData= [
-                      [defaultIcon, "#"],
-                      [defaultIcon, "#"],
-                      [defaultIcon, "#"],
-                      [defaultIcon, "#"]
+                      [errorIcon, "#"],
+                      [errorIcon, "#"],
+                      [errorIcon, "#"],
+                      [errorIcon, "#"]
                     ];
     const defaultHyperlinkData=[
-                      [defaultHyperlinkText, "#"],
-                      [defaultHyperlinkText, "#"],
-                      [defaultHyperlinkText, "#"],
+                      ["[Hyperlink]", "#"],
+                      ["[Hyperlink]", "#"],
+                      ["[Hyperlink]", "#"],
                     ];
     const defaultDescriptions=[
                       "&copy; 2025 Kyle Kirchgessner",
@@ -46,19 +45,19 @@ export default function Footer(props: {
     const id = props.id? props.id: "defaultFooter"
 
     return (
-    <div className="footer" id={id}>
-      <div className="footerText">
-        <div id="left"> 
+    <div className={styles.footer} id={id}>
+      <div className={styles.footerText}>
+        <div id={styles.left} >
           {hyperlinks.map((hyperlink, index) => (
             <Hyperlink 
                 key={index} 
-                linkText={hyperlink[0]} 
+                text={hyperlink[0]} 
                 href={hyperlink[1]} 
-                id="underlined" 
+                id={styles.underlined}
               />
             ))}
         </div>
-        <div id="right">
+        <div id={styles.right}>
           {descriptions.map((description, index) => (
               <Description 
                   key={index} 

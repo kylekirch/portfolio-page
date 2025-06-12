@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Anton, Goldman, Iceland } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/kirchLib/Navbar";
-import Footer from "./components/kirchLib/Footer";
+import Navbar from "./components/blocKit/Navbar";
+import Footer from "./components/blocKit/Footer";
 
 /* Component imports */
-import Icon from "./components/kirchLib/Icon";
-import MainTitle from "./components/kirchLib/MainTitle";
-import Description from "./components/kirchLib/Description";
-import Subtitle from "./components/kirchLib/Subtitle";
+import Icon from "./components/blocKit/Icon";
+import MainTitle from "./components/blocKit/MainTitle";
+import Description from "./components/blocKit/Description";
+import Subtitle from "./components/blocKit/Subtitle";
 
 const heading_Anton = Anton({
   weight: "400",
@@ -29,8 +29,8 @@ const body_Iceland = Iceland({
 });
 
 export const metadata: Metadata = {
-  title: "- Default kirchLib Layout -",
-  description: "Library by Kyle Kirchgessner, began development 5/27/25",
+  title: "Kyle Kirchgessner - Portfolio",
+  description: "A webpage dedicated to displaying my personal achievements and curriculum vitae",
 };
 
 export default function RootLayout({

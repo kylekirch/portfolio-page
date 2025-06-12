@@ -1,8 +1,9 @@
-import React from "react";
+import styles from "./core/blocKit.module.css"
 
 const Description = (
                     props: { 
                     text?:string; 
+                    fontSize?: string; // Accepts CSS font-size values, e.g., '24px', '2rem'
                     id?:string
   }) => {
   /* PROPS
@@ -14,9 +15,10 @@ const Description = (
   const text = props.text? props.text : ""
   /* Normalize id - defaults id to 'defaultDescription' if none provided */
   const id = props.id? props.id : "defaultDescription"
-  
+  const fontSize = props.fontSize? props.fontSize : '42px'
+
   return (
-    <p className="description" id={id}>{text}</p>
+    <p style={{ fontSize }} className={styles.description} id={id}>{text}</p>
   )
 };
 
