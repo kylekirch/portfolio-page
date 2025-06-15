@@ -15,12 +15,12 @@
 
 # next.js
 node_modules/
+.next/
+/out/
 dist/
 src/app/dist/
-.next/
 /dist/
 /**/dist/
-/out/
 
 
 # production
