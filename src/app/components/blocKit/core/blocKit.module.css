@@ -102,7 +102,7 @@ button.mainButton{
 .card {
   border: 1px solid var(--foreground);
   width: fit-content;
-  max-width: 850px;
+  max-width: 1000px;
   padding: 5px 15px;
   border-radius: 10px;
 }
@@ -113,7 +113,7 @@ button.mainButton{
   width: fit-content;
   padding: 15px;
 } .cardDeck .card{
-  width: 650px;
+  width: 95%;
   border: none;
 } .cardDeck h1 {
   text-align: center;

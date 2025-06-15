@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import Navbar from "./components/blocKit/Navbar";
 import CardDeck from "./components/blocKit/CardDeck";
+import Card from "./components/blocKit/Card";
 import Carousel from "./components/blocKit/Carousel";
 import ContactForm from "./components/blocKit/ContactForm";
 import MainTitle from "./components/blocKit/MainTitle";
@@ -8,6 +9,7 @@ import Subtitle from "./components/blocKit/Subtitle";
 import Description from "./components/blocKit/Description";
 import Hyperlink from "./components/blocKit/Hyperlink";
 import Footer from "./components/blocKit/Footer";
+import Image from "next/image";
 import * as dotenv from 'dotenv';
 
 export default function Home() {
@@ -24,7 +26,19 @@ export default function Home() {
   return (
     <div className={styles.main}>
       <div className={styles.section} id={styles.heroSection}>
-        
+        <MainTitle text="What I Believe:" id={styles.heroTitle}/>
+        <Image 
+              src={"/headshot.svg"} 
+              alt={"Hero-Headshot"}
+              height={250} 
+              width={250}
+              id={styles.heroImg}
+          />
+        <CardDeck id={styles.heroInfo}>
+          <Card header="Reliable software is usable software" />
+          <Card header="Agile methodologies are key to creating reliable software" />
+          <Card header="Unambiguous requirements create an inviting development environment" />
+        </CardDeck>
       </div>
       <div className={styles.section} id={styles.projectSection}>
         
@@ -39,9 +53,6 @@ export default function Home() {
         
       </div>
       <div className={styles.section} id={styles.creditSection}>
-        
-      </div>
-      <div className={styles.section} id={styles.footerSection}>
         
       </div>
     </div>

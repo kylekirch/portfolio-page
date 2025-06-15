@@ -26,9 +26,9 @@ const CardDeck = (props: {
   return(
     <div className={styles.cardDeck} id={id}>
       {deckTitle? <MainTitle text={deckTitle}/> : <></>}
-      {cards.map((card, index) => (
+      {props.cardData? cards.map((card, index) => (
         <Card key={index} header={card[0]} body={card[1]} />
-      ))}
+      )): <></>}
       {props.children?
         children
         :

@@ -41,13 +41,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${heading_Anton.variable} ${sub_Revalia.variable} ${body_Iceland.variable}`}>
-      <div className={styles.section} id={styles.navSection}>
-        <Navbar 
+      <Navbar 
             navbarTitle={[' ']}
             leftText={['Projects', '#projects']}
             rightText={['Contact', '#contact']}
             id={"mainNavbar"}
           />
+      <div className={styles.section} id={styles.navSection}>
+        
       </div>
       {children}
       <div className={styles.section} id={styles.footerSection}>
