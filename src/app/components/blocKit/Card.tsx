@@ -26,8 +26,12 @@ const Card = (props: {
 
   return(
     <div className={styles.card} id={id}>
+      {props.header?
       <Subtitle text={header} id={styles.underlined} />
-      {body?
+      :
+      <></>
+  }
+      {props.body?
           <Description text={body}/>
             :
           <></>

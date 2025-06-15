@@ -32,6 +32,7 @@ h3.subTitle{
 /*Description Component*/
 p.description{
   font-family: var(--font-iceland);
+  font-weight: 400;
 }
 /*Hyperlink Component*/
 div.hyperlink a {
@@ -144,7 +145,8 @@ div .carousel{
 .carouselButton {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 25%;
   margin: 25px 0px 0px;
 } .carouselButton .changeButton{ 
   padding: 5px;
@@ -170,7 +172,7 @@ form.contactForm {
   flex-direction: column;
   gap: 10px;
   padding: 10px 20px;
-  width: 500px;
+  max-width: 500px;
   border-radius: 10px;
 } .contactForm div > .subtitle {
   padding: 10px;
@@ -199,7 +201,7 @@ form.contactForm {
   border-radius: 8px;
   width: fit-content;
   height: fit-content;
-  padding: 8px 150px;
+  padding: 8px 125px;
   margin: 10px auto;
   margin-top: 10px;
   cursor: pointer;
@@ -213,7 +215,7 @@ form.contactForm {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content:space-around;
   align-items: center;
 }
 /*Footer Component*/

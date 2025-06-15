@@ -62,6 +62,7 @@ export default function Footer(props: {
               <Description 
                   key={index} 
                   text={description} 
+                  fontSize="24px"
                 />
             ))}
         </div>

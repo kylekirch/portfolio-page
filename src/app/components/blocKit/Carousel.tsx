@@ -25,12 +25,12 @@ const Modal = (props: {
                     className={styles.modalImage}
                     src={props.imgURL}
                     alt={props.title+" modal preview image"}
-                    width={400}
-                    height={400}
+                    width={350}
+                    height={350}
                     priority
                   />
           </a>
-          <Description text={props.description}/>
+          <Description text={props.description} fontSize="32px"/>
         </div>
     </div>
   )
@@ -95,8 +95,8 @@ const Carousel = (props: {
       />
       {props.numModals > 1?
         <div className={styles.carouselButton}>
-          <button className={styles.changeButton} onClick={handleClickUp} id={"invertable"}><Image src={upIcon} alt={"Up button"} /></button>
-          <button className={styles.changeButton} onClick={handleClickDown} id={"invertable"}><Image src={downIcon} alt={"Down button"} /></button>
+          <button className={styles.changeButton} onClick={handleClickUp} id={"invertable"}><Image src={upIcon} alt={"Up button"} width={50}/></button>
+          <button className={styles.changeButton} onClick={handleClickDown} id={"invertable"}><Image src={downIcon} alt={"Down button"} width={50}/></button>
         </div>
         :
       <></>

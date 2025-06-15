@@ -6,6 +6,7 @@ const IconBelt = (props: {
                   icons:Array<string>; 
                   hyperlinks:Array<string>; 
                   id?:string;
+                  iconSize?:number;
   }) => {
   /* PROPS
     * icons:Array<string> - (Required) The text displayed in the top section of the card
@@ -26,7 +27,7 @@ const IconBelt = (props: {
 
   /* Normalize id - defaults class to 'defaultBelt' if none provided */
   const id = props.id? props.id : "defaultBelt";
-
+  const iconSize = props.iconSize? props.iconSize : 50;
   return(
     <div className={styles.iconBelt} id={id}>
       {iconList.map((icon, index) => (
@@ -36,8 +37,8 @@ const IconBelt = (props: {
               src={icon[0]} 
               alt={"Belt Icon"}
               id={styles.invertable}
-              width={50}
-              height={50}
+              width={iconSize}
+              height={iconSize}
             />
           </a>
       ))}
