@@ -3,7 +3,7 @@ import { Anton, Goldman, Iceland } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/blocKit/Navbar";
 import Footer from "./components/blocKit/Footer";
-
+import styles from "./page.module.css";
 /* Component imports */
 import Icon from "./components/blocKit/Icon";
 import MainTitle from "./components/blocKit/MainTitle";
@@ -41,34 +41,35 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${heading_Anton.variable} ${sub_Revalia.variable} ${body_Iceland.variable}`}>
+      <div className={styles.section} id={styles.navSection}>
         <Navbar 
-            leftIcon={["/favicon.svg"
-              , "#"]} 
-            leftText={["Shop", "#"]} 
-            navbarTitle={["", "#"]} 
-            rightText={["Contact", "#"]} 
-            rightIcon={["/favicon.svg", "https://kirch.wiki"]} 
-            id={"defaultNavbar"}  
-          /> 
-        {children}
-              <Footer   
-          iconData= {[ 
-            ["/favicon.svg", "https://x.com/="], 
-            ["/favicon.svg", "https://instagram.com/"], 
-            ["/favicon.svg", "https://github.com/"], 
-            ["/favicon.svg", "https://linkedin.com/"] 
-          ]} 
-          hyperlinkData={[ 
-                ["Legal", "#defaultFooter"], 
-                ["Contact", "#defaultFooter"], 
-                ["More", "#defaultFooter"] 
-          ]} 
-          descriptions={[ 
-                "Copyright Kyle Kirchgessner", 
-                "All rights reserved, 2025" 
-          ]} 
-          id={"defaultFooter"}  
-      /> 
+            navbarTitle={[' ']}
+            leftText={['Projects', '#projects']}
+            rightText={['Contact', '#contact']}
+            id={"mainNavbar"}
+          />
+      </div>
+      {children}
+      <div className={styles.section} id={styles.footerSection}>
+        <Footer   
+            iconData= {[ 
+              ["/icon_x.svg", "https://x.com/"], 
+              ["/icon_insta.svg", "https://instagram.com/"], 
+              ["/icon_github.svg", "https://github.com/"], 
+              ["/icon_linkedin.svg", "https://linkedin.com/"] 
+            ]} 
+            hyperlinkData={[ 
+                  ["Legal", "#defaultFooter"], 
+                  ["Contact", "#contact"], 
+                  ["More", "#"] 
+            ]} 
+            descriptions={[ 
+                  "Copyright Kyle Kirchgessner", 
+                  "All rights reserved, 2025" 
+            ]} 
+            id={"mainFooter"}  
+          />
+      </div>
       </body>
     </html>
   );

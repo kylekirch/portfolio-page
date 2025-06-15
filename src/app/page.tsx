@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import Navbar from "./components/blocKit/Navbar";
 import CardDeck from "./components/blocKit/CardDeck";
 import Carousel from "./components/blocKit/Carousel";
 import ContactForm from "./components/blocKit/ContactForm";
@@ -6,7 +7,7 @@ import MainTitle from "./components/blocKit/MainTitle";
 import Subtitle from "./components/blocKit/Subtitle";
 import Description from "./components/blocKit/Description";
 import Hyperlink from "./components/blocKit/Hyperlink";
-
+import Footer from "./components/blocKit/Footer";
 import * as dotenv from 'dotenv';
 
 export default function Home() {
@@ -22,43 +23,27 @@ export default function Home() {
   const imgSrc="/favicon.svg";
   return (
     <div className={styles.main}>
-      <div className={styles.titleSection}>
-        <Subtitle text="Portfolio - Made with Next.js" id="underlined"/>
-        <Hyperlink text="Docs" href="https://kirch.wiki"/>
+      <div className={styles.section} id={styles.heroSection}>
+        
       </div>
-      <CardDeck  
-          deckTitle={"About Myself"} 
-          cardData={[ 
-            ["Trait", 
-            "This is why the trait aligns with me." 
-            ], 
-            ["Trait", 
-            "This is why the trait aligns with me." 
-            ], 
-            ["Trait", 
-            "This is why the trait aligns with me." 
-            ], 
-          ]} 
-          id={"defaultDeck"}  
-      /> 
-      <Carousel    
-          numModals={3} 
-          modalData={[ 
-            ["-Project 1-",
-              "My first project",
-              imgSrc,
-              "#"],
-            ["-Project 2-",
-              "My second project",
-              imgSrc,
-              "#"],
-            ["-Project 3-",
-              "My third project",
-              imgSrc,
-              "#"]
-          ]} 
-      /> 
-      <ContactForm EMAILJS_KEY={EMAILJS_USER_ID} TEMPLATE_ID={EMAILJS_TEMPLATE_ID}/> 
+      <div className={styles.section} id={styles.projectSection}>
+        
+      </div>
+      <div className={styles.section} id={styles.contactSection}>
+        
+      </div>
+      <div className={styles.section} id={styles.referenceSection}>
+        
+      </div>
+      <div className={styles.section} id={styles.teamworkSection}>
+        
+      </div>
+      <div className={styles.section} id={styles.creditSection}>
+        
+      </div>
+      <div className={styles.section} id={styles.footerSection}>
+        
+      </div>
     </div>
   );
 }
