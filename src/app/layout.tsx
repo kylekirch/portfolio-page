@@ -43,8 +43,8 @@ export default function RootLayout({
       <body className={`${heading_Anton.variable} ${sub_Revalia.variable} ${body_Iceland.variable}`}>
       <Navbar 
             navbarTitle={[' ']}
-            leftText={['Projects', '#projects']}
-            rightText={['Contact', '#contact']}
+            leftText={['Projects', '#projectTarget']}
+            rightText={['Contact', '#contactTarget']}
             id={"mainNavbar"}
           />
       <div className={styles.section} id={styles.navSection}>

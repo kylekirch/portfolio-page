@@ -95,8 +95,8 @@ const Carousel = (props: {
       />
       {props.numModals > 1?
         <div className={styles.carouselButton}>
-          <button className={styles.changeButton} onClick={handleClickUp} id={"invertable"}><Image src={upIcon} alt={"Up button"} width={50}/></button>
-          <button className={styles.changeButton} onClick={handleClickDown} id={"invertable"}><Image src={downIcon} alt={"Down button"} width={50}/></button>
+          <button className={styles.changeButton} onClick={handleClickUp}><Image src={upIcon} alt={"Up button"} width={50}/></button>
+          <button className={styles.changeButton} onClick={handleClickDown}><Image src={downIcon} alt={"Down button"} width={50}/></button>
         </div>
         :
       <></>

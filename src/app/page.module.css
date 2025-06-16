@@ -43,12 +43,14 @@ div.section{
   width: 100%;
   display: flex;
   flex-direction: column;
+  border: none;
+  border-top: 1px solid var(--foreground);
   padding: 40px;
   gap: 30px;
   align-items: center;
 } #heroInfo .card {
   width: 90%;
-}
+} 
 
 #projectSection.section{
   height: fit-content;
@@ -78,7 +80,14 @@ div.section{
 } #creditInfo #creditCard {
   width: 30% ;
   min-width: 350px;
+} #creditCard > #creditImg{
+  display: flex;
+  flex-direction: column;
+} #creditImg img {
+  align-self: center;
+  justify-self: center;
 }
+
 #contactSection.section{
   height: fit-content;
   width: 100%;
