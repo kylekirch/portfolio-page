@@ -60,6 +60,8 @@ div.section{
   padding: 0px 15px;
   margin: 10px;
   border-bottom: 1px solid var(--foreground);
+} #projectSection #projectCarousel {
+  border: none;
 }
 
 
@@ -83,9 +85,16 @@ div.section{
 } #creditCard > #creditImg{
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid var(--foreground);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
 } #creditImg img {
   align-self: center;
   justify-self: center;
+} #certification{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #contactSection.section{

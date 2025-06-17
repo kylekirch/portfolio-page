@@ -38,13 +38,13 @@ export default function Home() {
           />
         <CardDeck id={styles.heroInfo}>
           <Card >
-            <Subtitle text="Reliable software is useable software." />
+            <Subtitle text="Reliable software is usable software." />
           </Card>
           <Card >
-            <Subtitle text="Agile methodologies are key to creating reliable software." />
+            <Subtitle text="Agile methodologies are essential for creating reliable software." />
           </Card>
           <Card >
-            <Subtitle text="Unambiguous requirements create an inviting development environment." />
+            <Subtitle text="Clear requirements foster a productive development environment." />
           </Card>
         </CardDeck>
       <br id="projectTarget"/><br/>
@@ -54,30 +54,29 @@ export default function Home() {
         <Carousel 
                 numModals={5}
                 modalData={[["Lexical Analyzer", 
-                            "Made alongside a custom syntax parser, written in C", 
+                            "Built in C alongside a custom syntax parser. Designed to tokenize and classify input according to a defined grammar—laying the foundation for compiler construction.", 
                             "favicon.svg", 
                             "#projectSection"],
                             ["Fishing Condition Calculator", 
-                            "Made using numerous Python data analysis libraries. Including pandas for data storage, " +
-                            "Numpy and Scikit for statistical analysis, and matplotlib for visualization", 
+                            "Python-based data analysis tool that combines pandas for data storage, NumPy and scikit-learn for statistical modeling, and matplotlib for weather-based data visualization.", 
                             "favicon.svg", 
                             "#projectSection"],
                             ["Cellular Evolution Simulator", 
-                            "Implemented using Python's Multithread library on the Texas Tech University HPCC. The program simulated millions of cellular lifecycle iterations and analyzed the relationship between cores and processes.", 
+                            "Simulates millions of cellular lifecycles using Python's threading library, deployed on the Texas Tech HPCC. Explores performance tradeoffs between cores and processes through high-volume parallelization.", 
                             "favicon.svg", 
                             "#projectSection"],
                             ["MDP Solver",
-                            "Solves various mazes using 3 different implementations of the Markov Decision Process. " +
-                            "These include a traditional BFS approach, a heuristic approach via A* search, and a final approach that " +
-                            "emphasizes stochastic reliance. Written in Python (.ipynb)",
+                            "Implements three MDP-based maze-solving strategies: BFS, A*, and a stochastic policy-based method. Developed in Python (.ipynb) to explore decision-making under uncertainty.",
                             "favicon.svg",
                             "#projectSection"
                             ],
                             ["BlocKit", 
-                            "A fully documented React component library for streamlined app development. Optimized for reliability, render speed, and component modularity. Written in typescript.",
+                            "A custom-built, modular React component library. Engineered in TypeScript for performance, documentation clarity, and ease of integration across frontend applications.",
                             "favicon.svg", 
                             "#projectSection"]
-                            ]}/>
+                            ]}
+                id={styles.projectCarousel} 
+            />
       </div>
       <div className={styles.section} id={styles.creditSection}>
         <MainTitle text="Language Skills" id={styles.creditTitle}/>
@@ -86,48 +85,51 @@ export default function Home() {
               <Card id={styles.creditImg}>
                 <Subtitle text="Python"/>
                 <Image src={"/icon_python.svg"} alt={"Python-Icon"} width={150} height={150}/>
+                <Description fontSize="28px" text="A cornerstone of my data science and systems programming work." />
               </Card>
                 <Card header="Multithreading" >
-                <Description fontSize="24px" text="Allowed for parallel processing of data within realistic timeframe (e.g. Evolutions of large cellular matrices). " />
+                <Description fontSize="24px" text="Leveraged Python's threading module for parallel processing of large-scale cellular simulations." />
                 </Card>
                 <Card header="Pandas" >
-                <Description fontSize="24px" text="Used dataframes to contain data for later processing (e.g. Live NOAA weather data snapshots). " />
+                <Description fontSize="24px" text="Used DataFrames to structure and manage data pipelines, including live NOAA weather data feeds." />
                 </Card>
                 <Card header="NumPy" >
-                <Description fontSize="24px" text="Primarily used Numpy for consistent broadcasting of multidimentional arrays during high compute problems (e.g. Large-state MDP problems)." />
+                <Description fontSize="24px" text="Employed for efficient broadcasting and manipulation of multidimensional arrays—essential for large-state MDP problems." />
                 </Card>
-                <Card header="Scikit" >
-                <Description fontSize="24px" text="Allowed for regression analysis on Dataframes and NumPy arrays  (e.g. Feature identification of weather conditions that effect power consumption)." />
+                <Card header="Scikit-learn" >
+                <Description fontSize="24px" text="Applied regression models to identify predictive features in time-series weather data and consumption patterns." />
                 </Card>
             </CardDeck>
             <CardDeck id={styles.creditCard}>
               <Card id={styles.creditImg}>
                 <Subtitle text="C"/>
                 <Image src={"/icon_c.svg"} alt={"C-Language-Icon"} width={150} height={150}/>
+                <Description fontSize="28px" text="Developed performance-critical applications and systems on Texas Tech University's High Performance Computing Cluster." />
               </Card>
                 <Card header="TTU HPCC" >
-                <Description fontSize="24px" text="Completed numerous projects, using the Texas Tech University High-Performance Computing Cluster infrastructure. Utilized Bash commands to build makefiles into executables, and to establish a remote SSH connection with the cluster." />
+                <Description fontSize="24px" text="Built C projects using Makefiles and remote execution via SSH. Gained experience with HPC resource management and Bash scripting." />
                 </Card> 
                 <Card header="Complexity Analysis" >
-                <Description fontSize="24px" text="Low level data type creation and pointer usage allowed for in depth algorithm tweaking to solve problems in the mot efficient way possible." />
+                <Description fontSize="24px" text="Crafted custom data structures with fine-grained pointer logic, allowing deep optimization of algorithmic performance." />
                 </Card>
                 <Card header="Vim" >
-                <Description fontSize="24px" text="Extensive usage of the Vim text editor (through the Cygwin environment) for C program creation." />
+                <Description fontSize="24px" text="Wrote and managed all C code exclusively using Vim within the Cygwin environment—embracing efficiency and keyboard-centric workflows." />
                 </Card>
             </CardDeck>
             <CardDeck id={styles.creditCard}>
               <Card id={styles.creditImg}>
-                <Subtitle text="JavaScript"/>
+                <Subtitle text="JavaScript / TypeScript"/>
                 <Image src={"/icon_javascript.svg"} alt={"Javascript-Icon"} width={150} height={150}/>
+                <Description fontSize="28px" text="Focused on frontend development with a strong emphasis on type safety and modular design." />
               </Card>
-                <Card header="ReactJS" >
-                <Description fontSize="24px" text="I have used the ReactJS library via NextJS to create all of my recent web applications, including this website."/>
+                <Card header="ReactJS (Next.js)" >
+                <Description fontSize="24px" text="Built and deployed responsive web apps, including this portfolio site, using React and the Next.js framework."/>
                 </Card>
                 <Card header="TypeScript" >
-                <Description fontSize="24px" text="My primary exposure to JavaScript has been through TypeScript. As a developer, I find great solace in explicitly typed languages." />
+                <Description fontSize="24px" text="Preferred language for frontend development—offers clear type constraints that reduce runtime errors and aid scalability." />
                 </Card>
                 <Card header="Prisma" >
-                <Description fontSize="24px" text="Created a custom API in conjunction with Postman + Railway for use within an ecommerce application. This included User Validations, Database Queries, and Cart Caching." />
+                <Description fontSize="24px" text="Engineered a custom API layer with Prisma + Railway, integrated with Postman for testing. Handled database CRUD operations, cart caching, and authentication logic in an ecommerce app." />
                 </Card>
             </CardDeck>
             <MainButton text="Full CV (.pdf) ⤓" />
@@ -161,14 +163,14 @@ export default function Home() {
                 <Subtitle text="Tools"/>
                 <Image src={"/icon_tools.svg"} alt={"Tools-Icon"} width={150} height={150}/>
               </Card>
-                <Card header="Git" >
-                <Description fontSize="24px" text="Very well practiced with Git concepts and console commands. All of my contemperary projects are version controlled using Git and hosted on Github." />
+                <Card header="Git (Version Control)" >
+                <Description fontSize="24px" text="Daily user of Git for source control and collaboration. All active projects are tracked through Git and hosted on GitHub. Fluent in key commands and branching strategies." />
                 </Card>
                 <Card header="Requirements Engineering" >
-                <Description fontSize="24px" text="Strong background in Requirements Engineering research, with emphasis on streamlining the requirement elicitation phase." />
+                <Description fontSize="24px" text="Experienced in requirement elicitation and specification. Focused on reducing ambiguity early in the development lifecycle through structured interviews, user stories, and formal documentation." />
                 </Card>
-                <Card header="Agile + CI/CD DevOps" >
-                <Description fontSize="24px" text="Familiar with multiple different Agile software development frameworks, including the Scrum, and Extreme Programming (XP) methodologies." />
+                <Card header="Agile & DevOps Practices" >
+                <Description fontSize="24px" text="Familiar with iterative development using Scrum and Extreme Programming (XP) methodologies. Exposure to continuous integration and deployment workflows (CI/CD) and the cultural principles behind effective DevOps teams." />
                 </Card>
             </CardDeck>
             <CardDeck id={styles.creditCard}>
@@ -176,11 +178,25 @@ export default function Home() {
                 <Subtitle text="Accomplishments" />
                 <Image src={"/icon_awards.svg"} alt={"Awards-Icon"} width={150} height={150}/>
               </Card>
+                <Card header="B.S. in Computer Science" >
+                <Description fontSize="24px" text="Texas Tech University | Expected Graduation: December 2025" />
+                </Card>
+                <Card header="Professional Certifications" id={styles.certification}>
+                <div className={styles.certificationInfo}>
+                  <Subtitle fontSize="18" text="Responsive Web Development" />
+                  <Description fontSize="24px" text="FreeCodeCamp" />
+                </div>
+                <div className={styles.certificationInfo}>
+                  <Subtitle fontSize="18" text="DevOps Practices" />
+                  <Description fontSize="24px" text="Coursera" />
+                </div>
+                <div className={styles.certificationInfo}>
+                  <Subtitle fontSize="18" text="Java Advanced Programmer" />
+                  <Description fontSize="24px" text="Precision Exams - Exam XXX" />
+                </div>
+                </Card>
                 <Card header="Presidential Merit Scholar" >
                 <Description fontSize="24px" text="Recognized by Texas Tech University for for exceptional academic achievements and leadership qualities" />
-                </Card>
-                <Card header="Texas Tech University: BS-CS" >
-                <Description fontSize="24px" text="Expected graduation: December 2025. Graduating with a Bachelors Degree in Computer Science" />
                 </Card>
             </CardDeck>
         </div>

@@ -19,6 +19,7 @@ const Modal = (props: {
   return(
     <div className={styles.modalContainer} id={props.id}>
       <Subtitle text={props.title}/>
+      <Description text={props.description} fontSize="32px" id={styles.modalDescription}/>
         <div className={styles.modalFocus}>
           <a href={props.projectURL}>
             <Image
@@ -30,7 +31,7 @@ const Modal = (props: {
                     priority
                   />
           </a>
-          <Description text={props.description} fontSize="32px"/>
+          
         </div>
     </div>
   )
@@ -83,7 +84,7 @@ const Carousel = (props: {
         setCurrentModalNum(props.numModals-1)
     }
   };
-  const modalStyle = props.numModals > 1? 'underlined': 'singleModal';
+  const modalStyle = props.numModals > 1? '': 'singleModal';
   return (
     <div className={styles.carousel} id={id}>
       <Modal 
@@ -101,6 +102,7 @@ const Carousel = (props: {
         :
       <></>
       }
+      
     </div>
   );
 }

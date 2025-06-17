@@ -128,6 +128,7 @@ div .carousel{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 15px;
   width: 100%;
 } .modalContainer .subtitle{
   margin: 5px;
@@ -136,18 +137,19 @@ div .carousel{
   text-align: center;
   align-self: center;
   align-items: center;
-} .modalFocus .description{
-  margin: 20px auto;
-} .modalFocus .modalImage {
+}  .modalFocus .modalImage {
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 5px; 
+} .carousel #modalDescription {
+  max-width: 75%;
+  margin: 0 auto;
 }
 .carouselButton {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 25%;
-  margin: 25px 0px 0px;
+  margin: 15px 0px;
 } .carouselButton .changeButton{ 
   padding: 5px;
   border-radius: 5px;
@@ -157,7 +159,7 @@ div .carousel{
 } .carouselButton .changeButton:hover{
     backdrop-filter: opacity(.1);
     transition: all;
-  }
+  } 
 @media (prefers-color-scheme: dark) {
   .carouselButton .changeButton:hover{
     backdrop-filter: invert(.1);
