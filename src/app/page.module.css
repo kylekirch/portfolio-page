@@ -68,6 +68,7 @@ div.section{
 
 #creditSection.section{
   height: fit-content;
+  padding-bottom: 20px;
 } #creditTitle {
   padding: 0px 15px;
   margin: 10px;
@@ -80,21 +81,33 @@ div.section{
   flex-wrap: wrap;
   gap: 15px 3%;
 } #creditInfo #creditCard {
-  width: 30% ;
+  width: min(450px, 75%);
   min-width: 350px;
+  height: fit-content;
 } #creditCard > #creditImg{
   display: flex;
   flex-direction: column;
+  border-radius: 0px;
   border-bottom: 1px solid var(--foreground);
   padding-bottom: 15px;
   margin-bottom: 25px;
 } #creditImg img {
   align-self: center;
   justify-self: center;
-} #certification{
+}
+#certification{
   display: flex;
   flex-direction: column;
   gap: 10px;
+} #creditCard .expandButton {
+  width: 100%;
+  margin-top: 15px;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+} #creditImg #creditDescription{
+  height: 125px;
+  align-content: center;
 }
 
 #contactSection.section{

@@ -1,3 +1,6 @@
+'use client'
+import { useState, useRef } from 'react';
+
 import styles from "./page.module.css";
 import Navbar from "./components/blocKit/Navbar";
 import CardDeck from "./components/blocKit/CardDeck";
@@ -15,6 +18,7 @@ import IconBelt from "./components/blocKit/IconBelt";
 import MainButton from "./components/blocKit/MainButton";
 
 export default function Home() {
+  //handle emailjs cred extraction from environment
   dotenv.config();
   const EMAILJS_USER_ID = process.env.REACT_APP_EMAILJS_USER_ID? 
                                       process.env.REACT_APP_EMAILJS_USER_ID
@@ -25,10 +29,60 @@ export default function Home() {
                                       :
                                       'ERROR';
   const imgSrc="/favicon.svg";
+
+  //handle 'view more' buttons
+  const [pythonIsExpanded, setPythonExpansion] = useState(0)
+  const [cIsExpanded, setCExpansion] = useState(0)
+  const [javaScriptIsExpanded, setJavaScriptExpansion] = useState(0)
+
+  const pythonViewRef = useRef<HTMLDivElement>(null);
+  const cViewRef = useRef<HTMLDivElement>(null);
+  const jsViewRef = useRef<HTMLDivElement>(null);
+
+
+
+  const handleClickMore = (section: number) => {
+    switch(section){
+      case(0): {
+        setPythonExpansion(1)
+        break;
+      }
+      case(1): {
+        setCExpansion(1)
+        break;
+      }
+      case(2): {
+        setJavaScriptExpansion(1)
+        break;
+      }
+      default: {               
+        //do nothing
+      }
+    }
+  };
+  const handleClickLess = (section: number) => {
+      switch(section) {
+        case 0:
+          pythonViewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setPythonExpansion(0);
+          break;
+        case 1:
+          cViewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setCExpansion(0);
+          break;
+        case 2:
+          jsViewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          setJavaScriptExpansion(0);
+          break;
+        default:
+      }
+    }
+
+
   return (
     <div className={styles.main}>
       <div className={styles.section} id={styles.heroSection}>
-        <MainTitle text="What I Believe:" id={styles.heroTitle}/>
+        <MainTitle text="What I Believe:" id={styles.heroTitle} fontSize='min(52px,10vw)'/>
         <Image 
               src={"/headshot.svg"} 
               alt={"Hero-Headshot"}
@@ -50,11 +104,11 @@ export default function Home() {
       <br id="projectTarget"/><br/>
       </div>
       <div className={styles.section} id={styles.projectSection}>
-        <MainTitle text="My Projects" id={styles.projectTitle}/>
+        <MainTitle text="My Projects" id={styles.projectTitle} fontSize='min(52px,10vw)'/>
         <Carousel 
                 numModals={5}
                 modalData={[["Lexical Analyzer", 
-                            "Built in C alongside a custom syntax parser. Designed to tokenize and classify input according to a defined grammar—laying the foundation for compiler construction.", 
+                            "Built in C alongside a custom syntax parser. Designed to tokenize and classify input according to a defined grammar. The foundational layer of compiler design.", 
                             "favicon.svg", 
                             "#projectSection"],
                             ["Fishing Condition Calculator", 
@@ -79,14 +133,28 @@ export default function Home() {
             />
       </div>
       <div className={styles.section} id={styles.creditSection}>
-        <MainTitle text="Language Skills" id={styles.creditTitle}/>
+        <MainTitle text="Language Skills" id={styles.creditTitle} fontSize='min(52px,10vw)'/>
         <div id={styles.creditInfo}>
             <CardDeck id={styles.creditCard}>
               <Card id={styles.creditImg}>
                 <Subtitle text="Python"/>
-                <Image src={"/icon_python.svg"} alt={"Python-Icon"} width={150} height={150}/>
-                <Description fontSize="28px" text="A cornerstone of my data science and systems programming work." />
+                <Image src={"/icon_python.svg"} alt={"Python-Icon"} width={150} height={150} id='pythonView'/>
+                <div ref={pythonViewRef}/>
+                <Description 
+                          fontSize="min(24px, 5vw)" 
+                          id={styles.creditDescription}
+                          text="A cornerstone of my data science and systems programming work. Notably, many of my compute-intensive python projets implement multithreading." />
               </Card>
+              
+              {!pythonIsExpanded? 
+              <div>
+                <IconBelt 
+                      icons={['/icon_pandas.svg', '/icon_numpy.svg', '/icon_scikit.svg']} 
+                      hyperlinks={['']} />
+                <button className={styles.expandButton} onClick={() => handleClickMore(0)}>More...</button> 
+              </div>
+              :
+              <div>
                 <Card header="Multithreading" >
                 <Description fontSize="24px" text="Leveraged Python's threading module for parallel processing of large-scale cellular simulations." />
                 </Card>
@@ -99,13 +167,29 @@ export default function Home() {
                 <Card header="Scikit-learn" >
                 <Description fontSize="24px" text="Applied regression models to identify predictive features in time-series weather data and consumption patterns." />
                 </Card>
+                <button className={styles.expandButton} onClick={() => handleClickLess(0)}>Collapse</button>
+              </div>
+              }
             </CardDeck>
             <CardDeck id={styles.creditCard}>
               <Card id={styles.creditImg}>
                 <Subtitle text="C"/>
-                <Image src={"/icon_c.svg"} alt={"C-Language-Icon"} width={150} height={150}/>
-                <Description fontSize="28px" text="Developed performance-critical applications and systems on Texas Tech University's High Performance Computing Cluster." />
+                <Image src={"/icon_c.svg"} alt={"C-Language-Icon"} width={150} height={150} id='cView'/>
+                <div ref={cViewRef}/>
+                <Description 
+                        fontSize="min(24px, 5vw)" 
+                        id={styles.creditDescription} 
+                        text="Developed performance-critical applications and systems on Texas Tech University's High Performance Computing Cluster." />
               </Card>
+              {!cIsExpanded? 
+              <div>
+                <IconBelt 
+                        icons={['/icon_gcc.svg', '/icon_bash.svg', '/icon_vim.svg']} 
+                        hyperlinks={['']} /> 
+                <button className={styles.expandButton} onClick={() => handleClickMore(1)}>More...</button>
+              </div>
+                :
+              <div>
                 <Card header="TTU HPCC" >
                 <Description fontSize="24px" text="Built C projects using Makefiles and remote execution via SSH. Gained experience with HPC resource management and Bash scripting." />
                 </Card> 
@@ -115,13 +199,29 @@ export default function Home() {
                 <Card header="Vim" >
                 <Description fontSize="24px" text="Wrote and managed all C code exclusively using Vim within the Cygwin environment—embracing efficiency and keyboard-centric workflows." />
                 </Card>
+                <button className={styles.expandButton} onClick={() => handleClickLess(1)}>Collapse</button>
+              </div>
+              }
             </CardDeck>
             <CardDeck id={styles.creditCard}>
               <Card id={styles.creditImg}>
                 <Subtitle text="JavaScript / TypeScript"/>
-                <Image src={"/icon_javascript.svg"} alt={"Javascript-Icon"} width={150} height={150}/>
-                <Description fontSize="28px" text="Focused on frontend development with a strong emphasis on type safety and modular design." />
+                <Image src={"/icon_javascript.svg"} alt={"Javascript-Icon"} width={150} height={150} id='jsView'/>
+                <div ref={jsViewRef}/>
+                <Description 
+                        fontSize="min(24px, 5vw)" 
+                        id={styles.creditDescription}
+                        text="Focused on frontend development with a strong emphasis on type safety and modular design." />
               </Card>
+              {!javaScriptIsExpanded? 
+              <div>
+                <IconBelt 
+                        icons={['/icon_react.svg', '/icon_typescript.svg', '/icon_postman.svg']} 
+                        hyperlinks={['']} /> 
+                <button className={styles.expandButton} onClick={() => handleClickMore(2)}>More...</button>
+              </div>
+              :
+              <div>
                 <Card header="ReactJS (Next.js)" >
                 <Description fontSize="24px" text="Built and deployed responsive web apps, including this portfolio site, using React and the Next.js framework."/>
                 </Card>
@@ -131,8 +231,10 @@ export default function Home() {
                 <Card header="Prisma" >
                 <Description fontSize="24px" text="Engineered a custom API layer with Prisma + Railway, integrated with Postman for testing. Handled database CRUD operations, cart caching, and authentication logic in an ecommerce app." />
                 </Card>
+                <button className={styles.expandButton} onClick={() => handleClickLess(2)}>Collapse</button>
+              </div>
+              }
             </CardDeck>
-            <MainButton text="Full CV (.pdf) ⤓" />
             {/* For future implementation
             <CardDeck id={styles.creditCard}>
               <Card id={styles.creditImg}>
@@ -156,24 +258,9 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.section} id={styles.creditSection}>
-        <MainTitle text="Capabilities" id={styles.creditTitle}/>
+        <MainTitle text="More Capabilities" id={styles.creditTitle} fontSize='min(52px,10vw)'/>
         <div id={styles.creditInfo}>
-            <CardDeck id={styles.creditCard}>
-              <Card id={styles.creditImg}>
-                <Subtitle text="Tools"/>
-                <Image src={"/icon_tools.svg"} alt={"Tools-Icon"} width={150} height={150}/>
-              </Card>
-                <Card header="Git (Version Control)" >
-                <Description fontSize="24px" text="Daily user of Git for source control and collaboration. All active projects are tracked through Git and hosted on GitHub. Fluent in key commands and branching strategies." />
-                </Card>
-                <Card header="Requirements Engineering" >
-                <Description fontSize="24px" text="Experienced in requirement elicitation and specification. Focused on reducing ambiguity early in the development lifecycle through structured interviews, user stories, and formal documentation." />
-                </Card>
-                <Card header="Agile & DevOps Practices" >
-                <Description fontSize="24px" text="Familiar with iterative development using Scrum and Extreme Programming (XP) methodologies. Exposure to continuous integration and deployment workflows (CI/CD) and the cultural principles behind effective DevOps teams." />
-                </Card>
-            </CardDeck>
-            <CardDeck id={styles.creditCard}>
+          <CardDeck id={styles.creditCard}>
               <Card id={styles.creditImg}>
                 <Subtitle text="Accomplishments" />
                 <Image src={"/icon_awards.svg"} alt={"Awards-Icon"} width={150} height={150}/>
@@ -199,11 +286,27 @@ export default function Home() {
                 <Description fontSize="24px" text="Recognized by Texas Tech University for for exceptional academic achievements and leadership qualities" />
                 </Card>
             </CardDeck>
+            <CardDeck id={styles.creditCard}>
+              <Card id={styles.creditImg}>
+                <Subtitle text="Industry Practices"/>
+                <Image src={"/icon_tools.svg"} alt={"Tools-Icon"} width={150} height={150}/>
+              </Card>
+                <Card header="Git (Version Control)" >
+                <Description fontSize="24px" text="Daily user of Git for source control and collaboration. All active projects are tracked through Git and hosted on GitHub. Familiar with key commands and branching strategies." />
+                </Card>
+                <Card header="Requirements Engineering" >
+                <Description fontSize="24px" text="Experienced in requirement elicitation and specification. Focused on reducing ambiguity early in the development lifecycle through structured interviews, user stories, and formal documentation." />
+                </Card>
+                <Card header="Agile & DevOps Practices" >
+                <Description fontSize="24px" text="Familiar with iterative development using Scrum and Extreme Programming (XP) methodologies. Exposure to continuous integration and deployment workflows (CI/CD) and the cultural principles behind effective DevOps teams." />
+                </Card>
+            </CardDeck>
+            
         </div>
         <br id="contactTarget"/><br/><br/>
       </div>
       <div className={styles.section} id={styles.contactSection}>
-        <MainTitle text="Reach Out" id={styles.contactTitle}/>
+        <MainTitle text="Reach Out" id={styles.contactTitle} fontSize='min(52px,10vw)'/>
         <ContactForm 
                 EMAILJS_KEY={EMAILJS_USER_ID} 
                 TEMPLATE_ID={EMAILJS_TEMPLATE_ID} 
