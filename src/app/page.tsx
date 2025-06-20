@@ -88,6 +88,7 @@ export default function Home() {
               height={250} 
               width={250}
               id={styles.heroImg}
+              priority
           />
         <CardDeck id={styles.heroInfo}>
           <Card id={styles.infoCard}>
