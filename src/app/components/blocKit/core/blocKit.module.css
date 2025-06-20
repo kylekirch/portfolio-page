@@ -123,32 +123,43 @@ button.mainButton{
 div .carousel{
   border: inset 1px var(--foreground);
   border-radius: 10px;
-  padding: 20px;
+  padding: 5px;
 } .carousel .modalContainer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  padding: 15px;
+  gap: 25px;
   width: 100%;
 } .modalContainer .subtitle{
-  margin: 5px;
-  margin-bottom: 15px;
+  margin: 5px auto;
+  width: 100%
 }.modalContainer .modalFocus {
-  text-align: center;
+  width: 200px;
+  align-self: center;
+  align-items: center;
+} .modalContainer .modalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(575px, 90%);
   align-self: center;
   align-items: center;
 }  .modalFocus .modalImage {
-  padding: 5px;
-  border-radius: 5px; 
-} .carousel #modalDescription {
-  max-width: 75%;
+    margin: 0px;
+}   .modalFocus .modalLink {
+    width: fit-content;
+    height: fit-content;
+} 
+.carousel #modalDescription {
+  width: 100%;
   margin: 0 auto;
 }
 .carouselButton {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 25%;
+  gap: 15%;
   margin: 15px 0px;
 } .carouselButton .changeButton{ 
   padding: 5px;

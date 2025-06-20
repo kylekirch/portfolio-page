@@ -18,16 +18,18 @@ const Modal = (props: {
 }) => {
   return(
     <div className={styles.modalContainer} id={props.id}>
-      <Subtitle text={props.title}/>
-      <Description text={props.description} fontSize="32px" id={styles.modalDescription}/>
+      <div className={styles.modalInfo}>
+        <Subtitle text={props.title}/>
+        <Description text={props.description} fontSize="min(24px, 5vw)"  id={styles.modalDescription}/>
+      </div>
         <div className={styles.modalFocus}>
-          <a href={props.projectURL}>
+          <a href={props.projectURL} className={styles.modalLink}>
             <Image
                     className={styles.modalImage}
                     src={props.imgURL}
                     alt={props.title+" modal preview image"}
-                    width={350}
-                    height={350}
+                    width={200}
+                    height={200}
                     priority
                   />
           </a>

@@ -62,7 +62,7 @@ export default function RootLayout({
             hyperlinkData={[ 
                   ["Legal", "#defaultFooter"], 
                   ["Contact", "#contact"], 
-                  ["More", "#"] 
+                  ["Resume", "#"] 
             ]} 
             descriptions={[ 
                   "Copyright Kyle Kirchgessner", 
