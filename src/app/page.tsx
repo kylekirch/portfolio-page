@@ -129,28 +129,28 @@ export default function Home() {
                   {[
                     ["Lexical Analyzer", 
                     "Built in C alongside a custom syntax parser. Designed to tokenize and classify input according to a defined grammar. The foundational layer of compiler design.", 
-                    "favicon.svg", 
-                    "#projectSection"
+                    "/icon_previewDocs.svg", 
+                    "https://github.com/kylekirch"
                     ],
                     ["Fishing Condition Calculator", 
                     "Python-based data analysis tool that combines pandas for data storage, NumPy and scikit-learn for statistical modeling, and matplotlib for weather-based data visualization.", 
-                    "favicon.svg", 
-                    "#projectSection"
+                    "/icon_previewDocs.svg", 
+                    "https://github.com/kylekirch"
                     ],
                     ["Cellular Evolution Simulator", 
                     "Simulates millions of cellular lifecycles using Python's threading library, deployed on the Texas Tech HPCC. Explores performance tradeoffs between cores and processes through high-volume parallelization.", 
-                    "favicon.svg", 
-                    "#projectSection"
+                    "/icon_previewDocs.svg", 
+                    "https://github.com/kylekirch"
                     ],
                     ["MDP Solver",
                     "Implements three MDP-based maze-solving strategies: BFS, A*, and a stochastic policy-based method. Developed in Python (.ipynb) to explore decision-making under uncertainty.",
-                    "favicon.svg",
-                    "#projectSection"
+                    "/icon_previewDocs.svg",
+                    "https://github.com/kylekirch"
                     ],
                     ["BlocKit", 
                     "A custom-built, modular React component library. Engineered in TypeScript for performance, documentation clarity, and ease of integration across frontend applications.",
-                    "favicon.svg", 
-                    "#projectSection"
+                    "/icon_previewDocs.svg", 
+                    "https://kirch.wiki"
                     ]
                   ]}
               id={styles.projectCarousel} 
@@ -444,7 +444,7 @@ export default function Home() {
                         />
                   <Description 
                         fontSize="min(24px, 5vw)"
-                        text="Recognized by Texas Tech University for for exceptional academic achievements and leadership qualities" 
+                        text="Recognized by Texas Tech University for for exceptional academic achievements and leadership qualities." 
                         />
                 </Card>
                 <Card id={styles.certification}>
@@ -456,31 +456,21 @@ export default function Home() {
                 <div className={styles.certificationInfo}>
                   <Subtitle 
                         fontSize="18" 
-                        text="Responsive Web Development" 
+                        text="Responsive Web Design" 
                         />
                   <Description 
                         fontSize="min(24px, 5vw)"
-                        text="FreeCodeCamp" 
+                        text="FreeCodeCamp: certified for advanced competence in HTML and CSS programming, as well as basic competence in responsive JavaScript programming." 
                         />
                 </div>
                 <div className={styles.certificationInfo}>
                   <Subtitle 
                         fontSize="18" 
-                        text="DevOps Practices" 
+                        text="Advanced Java Programming" 
                         />
                   <Description 
                         fontSize="min(24px, 5vw)"
-                        text="Coursera" 
-                        />
-                </div>
-                <div className={styles.certificationInfo}>
-                  <Subtitle 
-                        fontSize="18" 
-                        text="Java Advanced Programmer" 
-                        />
-                  <Description 
-                        fontSize="min(24px, 5vw)"
-                        text="Precision Exams - Exam XXX" />
+                        text="Java Precision Exam 840: certified for advanced level competence in Object Oriented Computer Programming using Java." />
                 </div>
                 </Card>
                 

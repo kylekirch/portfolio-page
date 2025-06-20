@@ -23,7 +23,7 @@ const Modal = (props: {
         <Description text={props.description} fontSize="min(24px, 5vw)"  id={styles.modalDescription}/>
       </div>
         <div className={styles.modalFocus}>
-          <a href={props.projectURL} className={styles.modalLink}>
+          <a href={props.projectURL} target="_blank" className={styles.modalLink}>
             <Image
                     className={styles.modalImage}
                     src={props.imgURL}
