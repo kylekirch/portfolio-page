@@ -1,10 +1,13 @@
 {
   "name": "portfolio-site",
-  "version": "0.1.0",
-  "private": true,
+  "author": "Kyle Kirchgessner",
+  "homepage": ".",
+  "version": "1.0.0",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },
