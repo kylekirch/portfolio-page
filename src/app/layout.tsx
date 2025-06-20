@@ -4,11 +4,7 @@ import "./globals.css";
 import Navbar from "./components/blocKit/Navbar";
 import Footer from "./components/blocKit/Footer";
 import styles from "./page.module.css";
-/* Component imports */
-import Icon from "./components/blocKit/Icon";
-import MainTitle from "./components/blocKit/MainTitle";
-import Description from "./components/blocKit/Description";
-import Subtitle from "./components/blocKit/Subtitle";
+
 
 const heading_Anton = Anton({
   weight: "400",
