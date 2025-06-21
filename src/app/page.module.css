@@ -61,13 +61,15 @@ div.section{
   padding: 10px;
 } #projectTitle {
   padding: 0px 15px;
+  margin: 0px 10px;
+  margin-top: 10px;
   border-bottom: 1px solid var(--foreground);
 } #projectSection #projectCarousel {
   border: none;
 }
 
 #creditSection.section{
-  height: fit-content;
+  max-height: fit-content;
   padding-bottom: 20px;
 } #creditTitle {
   padding: 0px 15px;
@@ -119,20 +121,23 @@ div.section{
 #contactSection.section{
   height: fit-content;
   width: 100%;
-  display: flex;
-  gap: 20px;
-  flex-direction: column;
-  align-items: center;
 } #contactTitle{
   padding: 0px 15px;
-  margin: 10px;
-  width: min(500px, 100%);
   border-bottom: 1px solid var(--foreground);
+  margin: 10px;
+  margin-bottom: 25px;
 } #contactForm {
+  margin: 0 auto;
   margin-bottom: 20px;
   width: min(450px, 75%);
-  min-width: 350px;
+  min-width: 300px;
 }
 #footerSection.section{
   height: fit-content;
+}
+
+@media (prefers-color-scheme: dark) {
+    #invertable {
+      filter:invert(1)
+    }
 }

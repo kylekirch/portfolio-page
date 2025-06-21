@@ -72,7 +72,7 @@ export default function Home() {
           jsViewRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
           setJavaScriptExpansion(0);
           break;
-        default:
+        default: 
       }
     }
   return (
@@ -181,7 +181,7 @@ export default function Home() {
                 <Description 
                           fontSize="min(24px, 5vw)" 
                           id={styles.creditDescription}
-                          text="A cornerstone of my data science and systems programming work. Notably, many of my compute-intensive python projets implement multithreading." />
+                          text="A cornerstone of my data science and systems programming work. My largest projects use Python's multithreading capabilities." />
               </Card>
               {!pythonIsExpanded? 
               <div>
@@ -342,7 +342,7 @@ export default function Home() {
                 <Description 
                         fontSize="min(24px, 5vw)" 
                         id={styles.creditDescription}
-                        text="Focused on frontend development with a strong emphasis on type safety and modular design." 
+                        text="Focused on frontend development with a strong emphasis on type safety and modular design, alongside API design + creation." 
                         />
               </Card>
               {!javaScriptIsExpanded? 
@@ -424,6 +424,7 @@ export default function Home() {
                     alt={"Awards-Icon"} 
                     width={150} 
                     height={150}
+                    id={styles.invertable}
                     />
               </Card>
                 <Card >
@@ -486,6 +487,7 @@ export default function Home() {
                     alt={"Tools-Icon"} 
                     width={150} 
                     height={150}
+                    id={styles.invertable}
                     />
               </Card>
                 <Card>
@@ -524,7 +526,7 @@ export default function Home() {
             </CardDeck>
             
         </div>
-        <br id="contactTarget"/><br/><br/>
+        <br id="contactTarget"/>
       </div>
       <div className={styles.section} id={styles.contactSection}>
         <MainTitle 

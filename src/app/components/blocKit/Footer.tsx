@@ -67,7 +67,7 @@ export default function Footer(props: {
             ))}
         </div>
       </div>
-      <IconBelt icons={iconSrc} hyperlinks={iconRef}/>
+      <IconBelt icons={iconSrc} hyperlinks={iconRef} iconId={'invertable'}/>
     </div>
   );
 };

@@ -6,6 +6,7 @@ const IconBelt = (props: {
                   icons:Array<string>; 
                   hyperlinks:Array<string>; 
                   id?:string;
+                  iconId?:string;
                   iconSize?:number;
   }) => {
   /* PROPS
@@ -36,7 +37,7 @@ const IconBelt = (props: {
               key={index} 
               src={icon[0]} 
               alt={"Belt Icon"}
-              id={styles.invertable}
+              id={props.iconId}
               width={iconSize}
               height={iconSize}
             />

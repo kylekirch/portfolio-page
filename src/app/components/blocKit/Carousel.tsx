@@ -28,6 +28,7 @@ const Modal = (props: {
                     className={styles.modalImage}
                     src={props.imgURL}
                     alt={props.title+" modal preview image"}
+                    id={styles.invertable}
                     width={200}
                     height={200}
                     priority
@@ -98,8 +99,8 @@ const Carousel = (props: {
       />
       {props.numModals > 1?
         <div className={styles.carouselButton}>
-          <button className={styles.changeButton} onClick={handleClickUp}><Image src={upIcon} alt={"Up button"} width={50}/></button>
-          <button className={styles.changeButton} onClick={handleClickDown}><Image src={downIcon} alt={"Down button"} width={50}/></button>
+          <button className={styles.changeButton} onClick={handleClickUp}><Image src={upIcon} alt={"Up button"} width={50} id={styles.invertable}/></button>
+          <button className={styles.changeButton} onClick={handleClickDown}><Image src={downIcon} alt={"Down button"} width={50} id={styles.invertable}/></button>
         </div>
         :
       <></>

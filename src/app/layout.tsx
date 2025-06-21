@@ -64,7 +64,7 @@ export default function RootLayout({
                   "Copyright Kyle Kirchgessner", 
                   "All rights reserved, 2025" 
             ]} 
-            id={"mainFooter"}  
+            id={"mainFooter"}
           />
       </div>
       </body>

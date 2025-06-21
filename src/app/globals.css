@@ -52,7 +52,7 @@ body {
   border-bottom: 1px solid var(--foreground);
 } #text {
   color: #ebebeb;
-} @media (prefers-color-scheme: light) {
+} @media (prefers-color-scheme: dark) {
   #invertable {
     filter:invert(1)
   }

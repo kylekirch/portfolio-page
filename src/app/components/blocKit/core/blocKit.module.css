@@ -13,7 +13,11 @@
   color: #ebebeb;
   text-decoration-color: var(--foreground);
 } 
-
+@media (prefers-color-scheme: dark) {
+    #invertable {
+      filter:invert(1)
+    }
+}
 /*MainTitle Component*/
 h1.mainTitle {
   font-family: var(--font-anton);
@@ -214,7 +218,7 @@ form.contactForm {
   border-radius: 8px;
   width: fit-content;
   height: fit-content;
-  padding: 8px 125px;
+  padding: 8px 100px;
   margin: 10px auto;
   margin-top: 10px;
   cursor: pointer;
