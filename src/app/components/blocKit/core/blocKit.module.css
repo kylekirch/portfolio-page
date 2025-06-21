@@ -164,7 +164,7 @@ div .carousel{
   display: flex;
   justify-content: center;
   gap: 15%;
-  margin: 15px 0px;
+  margin: 0px;
 } .carouselButton .changeButton{ 
   padding: 5px;
   border-radius: 5px;
